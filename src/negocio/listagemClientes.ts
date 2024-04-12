@@ -1,5 +1,6 @@
 import Cliente from "../modelo/cliente";
 import Listagem from "./listagem";
+import ListagemPets from "./listagemPets";
 
 export default class ListagemClientes extends Listagem {
     private clientes: Array<Cliente>
@@ -13,6 +14,10 @@ export default class ListagemClientes extends Listagem {
             console.log(`Nome: ` + cliente.nome);
             console.log(`Nome social: ` + cliente.nomeSocial);
             console.log(`CPF: ` + cliente.getCpf.getValor);
+            console.log(`Data de emissão do CPF: ` + cliente.getCpf.getDataEmissao.toLocaleDateString());
+            console.log(`Pets:`);
+            let listagemPets = new ListagemPets(cliente.getPets)
+            listagemPets.listar()
             console.log(`--------------------------------------`);
         });
         console.log(`\n`);

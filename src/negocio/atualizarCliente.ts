@@ -3,6 +3,10 @@ import Cliente from "../modelo/cliente";
 import CPF from "../modelo/cpf";
 import Pet from "../modelo/pet";
 import Atualizar from "./atualizar";
+import AtualizarPet from "./atualizarPet";
+import CadastroPet from "./cadastroPet";
+import DeletarPet from "./deletarPet";
+import ListagemPets from "./listagemPets";
 import MenuPet from "./menuPet";
 
 export default class AtualizarCliente extends Atualizar {
@@ -58,16 +62,23 @@ export default class AtualizarCliente extends Atualizar {
                 let opcao = this.entrada.receberTexto(`Escolha uma opção: `)
                 switch (opcao) {
                     case '1':
-                        console.log("cadastrar pet")
+                        let cadastro = new CadastroPet(pets)
+                        cadastro.cadastrar()
                         break
                     case '2':
-                        console.log("listar pet")
+                        console.log(`\nLista de todos os pets:`);
+                        let listagem = new ListagemPets(pets)
+                        listagem.listar()
                         break
                     case '3':
-                        console.log("atualizar pet")
+                        let nomeAtualizar = this.entrada.receberTexto(`Por favor informe o nome do pet que deseja atualizar: `)
+                        let atualizar = new AtualizarPet(pets, nomeAtualizar)
+                        atualizar.atualizar()
                         break
                     case '4':
-                        console.log("deletar pet")
+                        let nomeDeletar = this.entrada.receberTexto(`Por favor informe o nome do pet que deseja deletar: `)
+                        let deletar = new DeletarPet(pets, nomeDeletar)
+                        deletar.deletar()
                         break
                     case '0':
                         menuPet.execucao = false
@@ -79,6 +90,7 @@ export default class AtualizarCliente extends Atualizar {
         }
 
         let novoCliente = new Cliente(nome, nomeSocial, cpf)
+        novoCliente.setPets = pets
         let indice = this.cliente.indexOf(cliente)
         this.cliente[indice] = novoCliente
     }
