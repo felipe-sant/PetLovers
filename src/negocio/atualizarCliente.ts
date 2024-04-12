@@ -1,7 +1,9 @@
 import Entrada from "../io/entrada";
 import Cliente from "../modelo/cliente";
 import CPF from "../modelo/cpf";
+import Pet from "../modelo/pet";
 import Atualizar from "./atualizar";
+import MenuPet from "./menuPet";
 
 export default class AtualizarCliente extends Atualizar {
     private cliente: Array<Cliente>
@@ -45,6 +47,35 @@ export default class AtualizarCliente extends Atualizar {
             let dia = new Number(partesData[0].valueOf()).valueOf()
             let dataEmissao = new Date(ano, mes, dia)
             cpf = new CPF(valor, dataEmissao);
+        }
+
+        let pets: Array<Pet> = cliente.getPets
+        let opcao = this.entrada.receberTexto(`Deseja atualizar os pets do cliente? (s/n) `)
+        if (opcao === 's') {
+            let menuPet = new MenuPet()
+            while (menuPet.execucao) {
+                menuPet.mostrarMenu()
+                let opcao = this.entrada.receberTexto(`Escolha uma opção: `)
+                switch (opcao) {
+                    case '1':
+                        console.log("cadastrar pet")
+                        break
+                    case '2':
+                        console.log("listar pet")
+                        break
+                    case '3':
+                        console.log("atualizar pet")
+                        break
+                    case '4':
+                        console.log("deletar pet")
+                        break
+                    case '0':
+                        menuPet.execucao = false
+                        break
+                    default:
+                        console.log("Opção não reconhecida")
+                }
+            }
         }
 
         let novoCliente = new Cliente(nome, nomeSocial, cpf)
