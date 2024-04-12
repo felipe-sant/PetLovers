@@ -14,7 +14,6 @@ export default class ListagemPets extends Listagem {
             console.log("   "+`Raça: ` + pet.getRaca);
             console.log("   "+`Gênero: ` + pet.getGenero);
             console.log("   "+`-----------------------------------`);
-        });11
-        console.log(`\n`);
+        });
     }
 }

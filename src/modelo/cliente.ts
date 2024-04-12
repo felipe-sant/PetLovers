@@ -47,6 +47,13 @@ export default class Cliente {
     public get getPets(): Array<Pet>{
         return this.pets
     }
+
+    public set setRgs(rgs: Array<RG>) {
+        this.rgs = rgs
+    }
+    public set setTelefones(telefones: Array<Telefone>) {
+        this.telefones = telefones
+    }
     public set setPets(pets: Array<Pet>){
         this.pets = pets
     }

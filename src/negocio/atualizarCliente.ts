@@ -2,12 +2,18 @@ import Entrada from "../io/entrada";
 import Cliente from "../modelo/cliente";
 import CPF from "../modelo/cpf";
 import Pet from "../modelo/pet";
+import RG from "../modelo/rg";
+import Telefone from "../modelo/telefone";
 import Atualizar from "./atualizar";
 import AtualizarPet from "./atualizarPet";
 import CadastroPet from "./cadastroPet";
+import CadastroRG from "./cadastroRG";
 import DeletarPet from "./deletarPet";
+import DeletarRG from "./deletarRG";
 import ListagemPets from "./listagemPets";
+import ListagemRG from "./listagemRG";
 import MenuPet from "./menuPet";
+import MenuRG from "./menuRG";
 
 export default class AtualizarCliente extends Atualizar {
     private cliente: Array<Cliente>
@@ -53,15 +59,51 @@ export default class AtualizarCliente extends Atualizar {
             cpf = new CPF(valor, dataEmissao);
         }
 
+        let rgs: Array<RG> = cliente.getRgs
+        let opcaoRG = this.entrada.receberTexto(`Deseja atualizar os RGs do cliente? (s/n) `)
+        if (opcaoRG == "s") {
+            let menuRG = new MenuRG()
+            while (menuRG.execucao) {
+                menuRG.mostrarMenu()
+                let opcao = this.entrada.receberTexto("Escolha uma opção: ")
+                switch (opcao) {
+                    case "1":
+                        console.log("\nInicio do cadastro de RG")
+                        let cadastro = new CadastroRG(rgs)
+                        cadastro.cadastrar()
+                        break
+                    case "2":
+                        console.log("\nLista de todos os RGs:")
+                        let listagem = new ListagemRG(rgs)
+                        listagem.listar()
+                        break
+                    case "3":
+                        let valorDeletar = this.entrada.receberTexto("Por favor informe o valor do RG que deseja deletar: ")
+                        let deletar = new DeletarRG(rgs, valorDeletar)
+                        deletar.deletar()
+                        break
+                    case "0":
+                        menuRG.execucao = false
+                        break
+                    default:
+                        console.log("Opção não reconhecida")
+                }
+            }
+        }
+
+        
+        let telefones: Array<Telefone> = cliente.getTelefones
+
         let pets: Array<Pet> = cliente.getPets
-        let opcao = this.entrada.receberTexto(`Deseja atualizar os pets do cliente? (s/n) `)
-        if (opcao === 's') {
+        let opcaoPet = this.entrada.receberTexto(`Deseja atualizar os pets do cliente? (s/n) `)
+        if (opcaoPet === 's') {
             let menuPet = new MenuPet()
             while (menuPet.execucao) {
                 menuPet.mostrarMenu()
                 let opcao = this.entrada.receberTexto(`Escolha uma opção: `)
                 switch (opcao) {
                     case '1':
+                        console.log(`\nInício do cadastro do pet`);
                         let cadastro = new CadastroPet(pets)
                         cadastro.cadastrar()
                         break
@@ -90,7 +132,10 @@ export default class AtualizarCliente extends Atualizar {
         }
 
         let novoCliente = new Cliente(nome, nomeSocial, cpf)
+        novoCliente.setRgs = rgs
+        novoCliente.setTelefones = telefones
         novoCliente.setPets = pets
+
         let indice = this.cliente.indexOf(cliente)
         this.cliente[indice] = novoCliente
     }

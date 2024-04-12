@@ -11,7 +11,6 @@ export default class CadastroPet extends Cadastro {
         this.entrada = new Entrada()
     }
     public cadastrar(): void {
-        console.log(`\nInício do cadastro do pet`);
         let nome = this.entrada.receberTexto(`Por favor informe o nome do pet: `)
         let tipo = this.entrada.receberTexto(`Por favor informe o tipo do pet: `)
         let raca = this.entrada.receberTexto(`Por favor informe a raça do pet: `)
