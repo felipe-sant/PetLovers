@@ -8,12 +8,16 @@ import Atualizar from "./atualizar";
 import AtualizarPet from "./atualizarPet";
 import CadastroPet from "./cadastroPet";
 import CadastroRG from "./cadastroRG";
+import CadastroTelefone from "./cadastroTelefone";
 import DeletarPet from "./deletarPet";
 import DeletarRG from "./deletarRG";
+import DeletarTelefone from "./deletarTelefone";
 import ListagemPets from "./listagemPets";
 import ListagemRG from "./listagemRG";
+import ListagemTelefone from "./listagemTelefone";
 import MenuPet from "./menuPet";
 import MenuRG from "./menuRG";
+import MenuTelefone from "./menuTelefone";
 
 export default class AtualizarCliente extends Atualizar {
     private cliente: Array<Cliente>
@@ -90,9 +94,38 @@ export default class AtualizarCliente extends Atualizar {
                 }
             }
         }
-
         
         let telefones: Array<Telefone> = cliente.getTelefones
+        let opcaoTelefone = this.entrada.receberTexto(`Deseja atualizar os telefones do cliente? (s/n) `)
+        if (opcaoTelefone === 's') {
+            let menuTelefone = new MenuTelefone()
+            while (menuTelefone.execucao) {
+                menuTelefone.mostrarMenu()
+                let opcao = this.entrada.receberTexto(`Escolha uma opção: `)
+                switch (opcao) {
+                    case '1':
+                        console.log(`\nInício do cadastro do telefone`);
+                        let cadastro = new CadastroTelefone(telefones)
+                        cadastro.cadastrar()
+                        break
+                    case '2':
+                        console.log(`\nLista de todos os telefones:`);
+                        let listagem = new ListagemTelefone(telefones)
+                        listagem.listar()
+                        break
+                    case '3':
+                        let numeroDeletar = this.entrada.receberTexto(`Por favor informe o número do telefone que deseja deletar: `)
+                        let deletar = new DeletarTelefone(telefones, numeroDeletar)
+                        deletar.deletar()
+                        break
+                    case '0':
+                        menuTelefone.execucao = false
+                        break
+                    default:
+                        console.log("Opção não reconhecida")
+                }
+            }
+        }
 
         let pets: Array<Pet> = cliente.getPets
         let opcaoPet = this.entrada.receberTexto(`Deseja atualizar os pets do cliente? (s/n) `)

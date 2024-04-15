@@ -7,6 +7,7 @@ import Telefone from "../modelo/telefone"
 import Cadastro from "./cadastro"
 import CadastroPet from "./cadastroPet"
 import CadastroRG from "./cadastroRG"
+import CadastroTelefone from "./cadastroTelefone"
 
 export default class CadastroCliente extends Cadastro {
     private clientes: Array<Cliente>
@@ -48,6 +49,14 @@ export default class CadastroCliente extends Cadastro {
         }
 
         let telefones: Array<Telefone> = []
+        while (true) {
+            let cadastrarTelefone = new CadastroTelefone(telefones)
+            cadastrarTelefone.cadastrar()
+            let opcao = this.entrada.receberTexto("deseja registrar mais? (s/n) ")
+            if (opcao.toLowerCase() != "s") {
+                break
+            }
+        }
 
         let pets: Array<Pet> = []
         let opcaoPet2 = this.entrada.receberTexto("Deseja registrar os pets? (s/n): ")
