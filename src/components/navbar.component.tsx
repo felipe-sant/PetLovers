@@ -6,12 +6,16 @@ class Navbar extends React.Component {
         const { pathname } = window.location;
 
         let marcado = {
+            home: "",
             clientes: "",
             produtos: "",
             servicos: ""
         }
 
         switch (pathname) {
+            case "/":
+                marcado.home = styles.destacado;
+                break;
             case "/clientes":
                 marcado.clientes = styles.destacado;
                 break;
@@ -26,7 +30,7 @@ class Navbar extends React.Component {
         return (
             <header className={styles.header}>
                 <h1>
-                    <a href="/">
+                    <a href="/" className={marcado.home}>
                         PetLovers
                     </a>
                 </h1>

@@ -1,0 +1,48 @@
+.titulo {
+    font-family: var(--text);
+    font-size: 1.8rem;
+    color: var(--vermelho);
+    border-bottom: 2px solid var(--vermelho);
+}
+
+.textos {
+    margin: auto;
+    padding: 70px 0px;
+    max-width: 600px;
+    min-width: none;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.paragrafo {    
+    margin-bottom: 20px;
+    font-family: var(--text);
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-align: justify;
+    text-indent: 1.5em;
+    line-height: 25px;
+    color: var(--preto);
+}
+
+.linha {
+    width: 200px;
+    height: 1px;
+    background-color: var(--preto);
+    border: none;
+    border-radius: 5px;
+    margin: 20px auto;
+}
+
+.links {
+    padding: 70px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}

@@ -18,12 +18,15 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: var(--branco);
+}
+
 main {
-    border: 1px solid red;
     margin: 0 auto;
     max-width: 800px;
     min-width: none;
     max-width: auto;
     min-height: calc(100vh - 95px);
-    padding: 20px;
+    padding: 80px 40px;
 }
