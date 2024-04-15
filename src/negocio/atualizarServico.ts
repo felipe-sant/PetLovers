@@ -27,7 +27,13 @@ export default class atualizarServico extends Atualizar {
             nome = servico.nome
         }
 
+        let valor = this.entrada.receberNumero(`Informe o novo valor do serviço: `)
+        if (valor === 0) {
+            valor = servico.valor
+        }
+
         let novoServico = new Servico(nome)
+        novoServico.valor = valor
 
         let indice = this.servicos.indexOf(servico)
         this.servicos[indice] = novoServico

@@ -27,7 +27,13 @@ export default class AtualizarProduto extends Atualizar {
             nome = produto.nome
         }
 
+        let valor = this.entrada.receberNumero(`Informe o novo valor do produto: `)
+        if (valor === 0) {
+            valor = produto.valor
+        }
+
         let novoProduto = new Produto(nome)
+        novoProduto.valor = valor
 
         let indice = this.produtos.indexOf(produto)
         this.produtos[indice] = novoProduto
