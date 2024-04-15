@@ -2,19 +2,19 @@ import React from "react";
 import Navbar from "../components/navbar.component";
 import Footer from "../components/footer.component";
 
-class Home extends React.Component {
+class Clientes extends React.Component {
     render() {
         return (
             <>
                 <Navbar />
                 <main>
-                    <h1>Home</h1>
-                    <p>Home page</p>
+                    <h1>Lista de Clientes</h1>
+                    <p>Lista de Clientes</p>
                 </main>
                 <Footer />
             </>
-        );
+        )
     }
 }
 
-export default Home;
+export default Clientes

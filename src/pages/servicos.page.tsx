@@ -1,20 +1,20 @@
 import React from "react";
-import Navbar from "../components/navbar.component";
 import Footer from "../components/footer.component";
+import Navbar from "../components/navbar.component";
 
-class Home extends React.Component {
+class Servicos extends React.Component {
     render() {
-        return (
+        return(
             <>
                 <Navbar />
                 <main>
-                    <h1>Home</h1>
-                    <p>Home page</p>
+                    <h1>Serviços</h1>
+                    <p>Lista de serviços</p>
                 </main>
                 <Footer />
             </>
-        );
+        )
     }
 }
 
-export default Home;
+export default Servicos;

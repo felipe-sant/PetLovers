@@ -12,7 +12,7 @@ class Navbar extends React.Component {
         }
 
         switch (pathname) {
-            case "/":
+            case "/clientes":
                 marcado.clientes = styles.destacado;
                 break;
             case "/produtos":
@@ -25,7 +25,11 @@ class Navbar extends React.Component {
 
         return (
             <header className={styles.header}>
-                <h1>PetLovers</h1>
+                <h1>
+                    <a href="/">
+                        PetLovers
+                    </a>
+                </h1>
                 <nav>
                     <ul>
                         <li>

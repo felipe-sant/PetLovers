@@ -10,11 +10,17 @@
 
 }
 
-.header h1 {
+.header h1 a {
     font-family: var(--title);
     font-weight: 400;
     font-size: 1.5rem;
+    text-decoration: none;
     color: var(--branco);
+    transition: color 0.3s;
+}
+
+.header h1 a:hover {
+    color: var(--amarelo);
 }
 
 .header nav ul {
