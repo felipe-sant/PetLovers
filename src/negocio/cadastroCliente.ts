@@ -47,28 +47,34 @@ export default class CadastroCliente extends Cadastro {
         }
 
         let rgs: Array<RG> = []
-        while (true) {
-            let cadastrarRG = new CadastroRG(rgs)
-            cadastrarRG.cadastrar()
-            let opcao = this.entrada.receberTexto("deseja registrar mais? (s/n) ")
-            if (opcao.toLowerCase() != "s") {
-                break
+        let opcaoRG = this.entrada.receberTexto("Deseja registrar os RGs? (s/n): ")
+        if (opcaoRG.toLocaleLowerCase() === "s") {
+            while (true) {
+                let cadastrarRG = new CadastroRG(rgs)
+                cadastrarRG.cadastrar()
+                let opcao = this.entrada.receberTexto("deseja registrar mais? (s/n) ")
+                if (opcao.toLowerCase() != "s") {
+                    break
+                }
             }
         }
 
         let telefones: Array<Telefone> = []
-        while (true) {
-            let cadastrarTelefone = new CadastroTelefone(telefones)
-            cadastrarTelefone.cadastrar()
-            let opcao = this.entrada.receberTexto("deseja registrar mais? (s/n) ")
-            if (opcao.toLowerCase() != "s") {
-                break
+        let opcaoTelefone = this.entrada.receberTexto("Deseja registrar os telefones? (s/n): ")
+        if (opcaoTelefone.toLocaleLowerCase() === "s") {
+            while (true) {
+                let cadastrarTelefone = new CadastroTelefone(telefones)
+                cadastrarTelefone.cadastrar()
+                let opcao = this.entrada.receberTexto("deseja registrar mais? (s/n) ")
+                if (opcao.toLowerCase() != "s") {
+                    break
+                }
             }
         }
 
         let pets: Array<Pet> = []
-        let opcaoPet2 = this.entrada.receberTexto("Deseja registrar os pets? (s/n): ")
-        if (opcaoPet2.toLocaleLowerCase() === "s") {
+        let opcaoPet = this.entrada.receberTexto("Deseja registrar os pets? (s/n): ")
+        if (opcaoPet.toLocaleLowerCase() === "s") {
             while (true) {
                 let cadastrarPet = new CadastroPet(pets)
                 cadastrarPet.cadastrar()
@@ -80,22 +86,28 @@ export default class CadastroCliente extends Cadastro {
         }
 
         let produtosConsumidos: Array<Produto> = []
-        while (true) {
-            let cadastroProdutosExistentes = new CadastroProdutosExistentes(produtosConsumidos, this.produtos)
-            cadastroProdutosExistentes.cadastrar()
-            let opcao = this.entrada.receberTexto("deseja registrar mais? (s/n) ")
-            if (opcao.toLowerCase() != "s") {
-                break
+        let opcaoProduto = this.entrada.receberTexto("Deseja registrar os produtos consumidos? (s/n): ")
+        if (opcaoProduto.toLocaleLowerCase() === "s") {
+            while (true) {
+                let cadastroProdutosExistentes = new CadastroProdutosExistentes(produtosConsumidos, this.produtos)
+                cadastroProdutosExistentes.cadastrar()
+                let opcao = this.entrada.receberTexto("deseja registrar mais? (s/n) ")
+                if (opcao.toLowerCase() != "s") {
+                    break
+                }
             }
         }
 
         let servicosConsumidos: Array<Servico> = []
-        while (true) {
-            let cadastroServicosExistentes = new CadastroservicosExistentes(servicosConsumidos, this.servicos)
-            cadastroServicosExistentes.cadastrar()
-            let opcao = this.entrada.receberTexto("deseja registrar mais? (s/n) ")
-            if (opcao.toLowerCase() != "s") {
-                break
+        let opcaoServico = this.entrada.receberTexto("Deseja registrar os serviços consumidos? (s/n): ")
+        if (opcaoServico.toLocaleLowerCase() === "s") {
+            while (true) {
+                let cadastroServicosExistentes = new CadastroservicosExistentes(servicosConsumidos, this.servicos)
+                cadastroServicosExistentes.cadastrar()
+                let opcao = this.entrada.receberTexto("deseja registrar mais? (s/n) ")
+                if (opcao.toLowerCase() != "s") {
+                    break
+                }
             }
         }
 

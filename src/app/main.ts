@@ -1,4 +1,6 @@
 import Entrada from "../io/entrada";
+import Cliente from "../modelo/cliente";
+import CPF from "../modelo/cpf";
 import Empresa from "../modelo/empresa";
 import Produto from "../modelo/produto";
 import Servico from "../modelo/servico";
@@ -12,6 +14,8 @@ import DeletarCliente from "../negocio/deletarCliente";
 import DeletarProduto from "../negocio/deletarProduto";
 import DeletarServico from "../negocio/deletarServico";
 import ListagemClientes from "../negocio/listagemClientes";
+import ListagemClientesQntProduto from "../negocio/listagemClientesQntProduto";
+import ListagemClientesQntServico from "../negocio/listagemClientesQntServico";
 import ListagemProdutos from "../negocio/listagemProdutos";
 import ListagemServicos from "../negocio/listagemServicos";
 import MenuCliente from "../negocio/menuCliente";
@@ -23,9 +27,11 @@ console.log(`Bem-vindo ao melhor sistema de gerenciamento de pet shops e clínic
 let empresa = new Empresa()
 
 let produtos:Array<Produto> = [
-    new Produto("racao"),
-    new Produto("cama"),
-    new Produto("brinquedo")
+    new Produto("produto1"),
+    new Produto("produto2"),
+    new Produto("produto3"),
+    new Produto("produto4"),
+    new Produto("produto5")
 ]
 
 let servicos:Array<Servico> = [
@@ -34,8 +40,22 @@ let servicos:Array<Servico> = [
     new Servico("consulta")
 ]
 
+let clientes:Array<Cliente> = [
+    new Cliente("cliente1", "cliente1", new CPF("12345678901", new Date())),
+    new Cliente("cliente2", "cliente2", new CPF("12345678902", new Date())),
+    new Cliente("cliente3", "cliente3", new CPF("12345678903", new Date())),
+    new Cliente("cliente4", "cliente4", new CPF("12345678904", new Date())),
+    new Cliente("cliente5", "cliente5", new CPF("12345678905", new Date())),
+    new Cliente("cliente6", "cliente6", new CPF("12345678906", new Date())),
+    new Cliente("cliente7", "cliente7", new CPF("12345678907", new Date())),
+    new Cliente("cliente8", "cliente8", new CPF("12345678908", new Date())),
+    new Cliente("cliente9", "cliente9", new CPF("12345678909", new Date())),
+    new Cliente("cliente10", "cliente10", new CPF("12345678910", new Date()))
+]
+
 empresa.setProdutos = produtos
 empresa.setServicos = servicos
+empresa.setClientes = clientes
 
 let menuEmpresa = new MenuEmpresa()
 while (menuEmpresa.execucao) {
@@ -141,6 +161,14 @@ while (menuEmpresa.execucao) {
                         console.log(`Operação não entendida :(`)
                 }
             }
+            break
+        case "4":
+            let listagemClientes = new ListagemClientesQntProduto(empresa.getClientes)
+            listagemClientes.listar()
+            break
+        case "5":
+            let listagemCliente = new ListagemClientesQntServico(empresa.getClientes)
+            listagemCliente.listar()
             break
         case "0":
             menuEmpresa.execucao = false
