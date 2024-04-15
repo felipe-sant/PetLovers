@@ -2,11 +2,19 @@
 
 # 🐶 PetLovers 🐶
 
+#### As cinco atividades da materia de TP1 (Técnicas de Programação 1)
+
+![Typescript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+
 </div>
 
-### As cinco atividades da materia de TP1 (Técnicas de Programação 1)
+<br>
 
-O projeto consiste em criar um sistema de gerenciamento de Petshops
+
+O projeto consiste em criar um sistema de gerenciamento de Petshops utilizando de __programação orientada a objetos__.
+
+## 🕓 Status
 
 | Atividades | Status                                                |
 |------------|-------------------------------------------------------|
