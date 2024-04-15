@@ -1,6 +1,4 @@
 import Entrada from "../io/entrada";
-import Cliente from "../modelo/cliente";
-import CPF from "../modelo/cpf";
 import Empresa from "../modelo/empresa";
 import Produto from "../modelo/produto";
 import Servico from "../modelo/servico";
@@ -19,7 +17,9 @@ import ListagemClientesQntServico from "../negocio/listagemClientesQntServico";
 import ListagemClientesValorProduto from "../negocio/listagemClientesValorProduto";
 import ListagemClientesValorServico from "../negocio/listagemClientesValorServico";
 import ListagemProdutos from "../negocio/listagemProdutos";
+import ListagemProdutosMaisConsumidos from "../negocio/listagemProdutosMaisConsumidos";
 import ListagemServicos from "../negocio/listagemServicos";
+import ListagemServicosMaisConsumidos from "../negocio/listagemServicosMaisConsumidos";
 import MenuCliente from "../negocio/menuCliente";
 import MenuEmpresa from "../negocio/menuEmpresa";
 import MenuProduto from "../negocio/menuProduto";
@@ -190,6 +190,13 @@ while (menuEmpresa.execucao) {
             let listagemClientesValorServico = new ListagemClientesValorServico(empresa.getClientes)
             listagemClientesValorServico.listar()
             break
+        case "8":
+            let listagemProdutosMaisConsumidos = new ListagemProdutosMaisConsumidos(empresa.getClientes)
+            listagemProdutosMaisConsumidos.listar() 
+            break
+        case "9":
+            let listagemServicosMaisConsumidos = new ListagemServicosMaisConsumidos(empresa.getClientes)
+            listagemServicosMaisConsumidos.listar()
         case "0":
             menuEmpresa.execucao = false
             console.log(`Até mais`)

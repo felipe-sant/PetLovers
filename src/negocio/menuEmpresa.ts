@@ -12,6 +12,8 @@ export default class MenuEmpresa extends Menu {
         console.log(`5 - Listar Clientes e quantidade de serviços consumidos`)
         console.log(`6 - Listar Clientes e valor de produtos consumidos`)
         console.log(`7 - Listar Clientes e valor de serviços consumidos`)
+        console.log(`8 - Listar Produtos mais consumidos`)
+        console.log(`9 - Listar Serviços mais consumidos`)
         console.log(`0 - Sair`)
         console.log("===".repeat(10))
     }
