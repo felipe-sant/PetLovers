@@ -18,56 +18,17 @@ import ListagemClientesValorProduto from "../negocio/listagemClientesValorProdut
 import ListagemClientesValorServico from "../negocio/listagemClientesValorServico";
 import ListagemProdutos from "../negocio/listagemProdutos";
 import ListagemProdutosMaisConsumidos from "../negocio/listagemProdutosMaisConsumidos";
+import ListagemProdutosMaisConsumidosPorPets from "../negocio/listagemProdutosMaisConsumidosPorPets";
 import ListagemServicos from "../negocio/listagemServicos";
 import ListagemServicosMaisConsumidos from "../negocio/listagemServicosMaisConsumidos";
+import ListagemServicosMaisConsumidosPorPets from "../negocio/listagemServicosMaisConsumidosPorPet";
 import MenuCliente from "../negocio/menuCliente";
 import MenuEmpresa from "../negocio/menuEmpresa";
 import MenuProduto from "../negocio/menuProduto";
 import MenuServico from "../negocio/menuServico";
 
-let produto1 = new Produto("produto1")
-produto1.valor = 13.5
-let produto2 = new Produto("produto2")
-produto2.valor = 15.5
-let produto3 = new Produto("produto3")
-produto3.valor = 20.5
-let produto4 = new Produto("produto4")
-produto4.valor = 10.5
-let produto5 = new Produto("produto5")
-produto5.valor = 30.5
-
-let produtos:Array<Produto> = [
-    produto1,
-    produto2,
-    produto3,
-    produto4,
-    produto5
-]
-
-let servico1 = new Servico("servico1")
-servico1.valor = 13.5
-let servico2 = new Servico("servico2")
-servico2.valor = 15.5
-let servico3 = new Servico("servico3")
-servico3.valor = 20.5
-let servico4 = new Servico("servico4")
-servico4.valor = 10.5
-let servico5 = new Servico("servico5")
-servico5.valor = 30.5
-
-let servicos:Array<Servico> = [
-    servico1,
-    servico2,
-    servico3,
-    servico4,
-    servico5
-]
-
 console.log(`Bem-vindo ao melhor sistema de gerenciamento de pet shops e clínicas veterinarias`)
 let empresa = new Empresa()
-
-empresa.setProdutos = produtos
-empresa.setServicos = servicos
 
 let menuEmpresa = new MenuEmpresa()
 while (menuEmpresa.execucao) {
@@ -191,12 +152,29 @@ while (menuEmpresa.execucao) {
             listagemClientesValorServico.listar()
             break
         case "8":
-            let listagemProdutosMaisConsumidos = new ListagemProdutosMaisConsumidos(empresa.getClientes)
-            listagemProdutosMaisConsumidos.listar() 
+            let opcaoPC = entrada.receberTexto(`Deseja filtrar por tipo de pet? (s/n) `)
+            if (opcaoPC === "s") {
+                let listagemProdutosMaisConsumidosPorPets = new ListagemProdutosMaisConsumidosPorPets(empresa.getClientes)
+                listagemProdutosMaisConsumidosPorPets.listar()
+            } else if (opcaoPC === "n") {
+                let listagemProdutosMaisConsumidos = new ListagemProdutosMaisConsumidos(empresa.getClientes)
+                listagemProdutosMaisConsumidos.listar()
+            } else {
+                console.log(`\nOperação não entendida :(\n`)
+            }
             break
         case "9":
-            let listagemServicosMaisConsumidos = new ListagemServicosMaisConsumidos(empresa.getClientes)
-            listagemServicosMaisConsumidos.listar()
+            let opcaoSC = entrada.receberTexto(`Deseja filtrar por tipo de pet? (s/n) `)
+            if (opcaoSC === "s") {
+                let listagemServicosMaisConsumidosPorPets = new ListagemServicosMaisConsumidosPorPets(empresa.getClientes)
+                listagemServicosMaisConsumidosPorPets.listar()
+            } else if (opcaoSC === "n") {
+                let listagemServicosMaisConsumidos = new ListagemServicosMaisConsumidos(empresa.getClientes)
+                listagemServicosMaisConsumidos.listar()
+            } else {
+                console.log(`\nOperação não entendida :(\n`)
+            }
+            break
         case "0":
             menuEmpresa.execucao = false
             console.log(`Até mais`)
