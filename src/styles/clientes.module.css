@@ -1,0 +1,42 @@
+.body {
+    display: flex;
+    flex-direction: row;
+}
+
+.filtro {
+    background-color: var(--azulClaro);
+    width: 20%;
+    max-height: max-content;
+}
+
+.filtro section {
+    width: 100%;
+    height: calc(100vh - 95px);
+}
+
+.conteudo {
+    width: 100%;
+}
+
+.conteudo main {
+    /* border: 5px solid red; */
+    padding: 80px 0px;
+}
+
+.botoes {
+    /* border: 5px solid purple; */
+    height: 80px;
+    width: 100%;
+    padding: 20px;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.listagem {
+    border: 5px solid lime;
+    min-height: 400px;
+    max-height: none;
+    width: 100%;
+}
