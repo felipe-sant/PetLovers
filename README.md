@@ -16,10 +16,10 @@ O projeto consiste em criar um sistema de gerenciamento de Petshops utilizando d
 
 ## 🕓 Status
 
-| Atividades | Status                                                |    |
-|------------|-------------------------------------------------------|----| 
-| atv1       | <span style="color:green">Concluído</span>            | ✔️ |
-| atv2       | <span style="color:yellow">Em desenvolvimento </span> |  ⌛ |
-| atv3       | <span style="color:red">Não iniciado</span>           | ❌ |
-| atv4       | <span style="color:red">Não iniciado</span>           | ❌ |
-| atv5       | <span style="color:red">Não iniciado</span>           | ❌ |
+| Atividades | Status                                                |   |
+|------------|-------------------------------------------------------|---| 
+| atv1       | <span style="color:green">Concluído</span>            |🟢|
+| atv2       | <span style="color:yellow">Em desenvolvimento </span> |🟡|
+| atv3       | <span style="color:red">Não iniciado</span>           |🔴|
+| atv4       | <span style="color:red">Não iniciado</span>           |🔴|
+| atv5       | <span style="color:red">Não iniciado</span>           |🔴|
