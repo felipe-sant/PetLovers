@@ -38,7 +38,7 @@ export default class ListagemClientesQntProduto extends Listagem {
             
             const entrada = new Entrada()
             console.log()
-            entrada.receberNumero("Pressione qualquer tecla para continuar...")
+            entrada.receberTexto("Pressione qualquer tecla para continuar...")
         }
     }
 }

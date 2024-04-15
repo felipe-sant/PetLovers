@@ -2,7 +2,7 @@ import Entrada from "../io/entrada";
 import Cliente from "../modelo/cliente";
 import Listagem from "./listagem";
 
-export default class ListagemClientesQntServico  extends Listagem{
+export default class ListagemClientesValorProduto extends Listagem {
     private clientes: Array<Cliente>
     constructor(clientes: Array<Cliente>) {
         super()
@@ -10,7 +10,7 @@ export default class ListagemClientesQntServico  extends Listagem{
     }
 
     public listar(): void {
-        console.log("Listagem de clientes e quantidade de serviços")
+        console.log("Listagem de clientes e valor de produtos")
         if (this.clientes.length === 0) {
             console.log("Nenhum cliente cadastrado")
             return
@@ -19,20 +19,20 @@ export default class ListagemClientesQntServico  extends Listagem{
             this.clientes.forEach(cliente => {
                 let obj = {
                     nome: cliente.nome,
-                    quantidadeServicos: cliente.getServicosConsumidos.length
+                    valorProdutos: cliente.getProdutosConsumidos.reduce((acc, produto) => acc + produto.valor, 0)
                 }
                 lista.push(obj)
             })
 
             lista.sort((a, b) => {
-                return b.quantidadeServicos - a.quantidadeServicos
+                return b.valorProdutos - a.valorProdutos
             })
 
             console.log()
 
             lista.forEach((item, index) => {
                 if (index < 10) {        
-                    console.log(`| ${index + 1} - Nome: ${item.nome} | Quantidade de serviços consumidos: ${item.quantidadeServicos} |`)
+                    console.log(`| ${index + 1} - Nome: ${item.nome} | Valor de produtos consumidos: ${item.valorProdutos} |`)
                 }
             })
 

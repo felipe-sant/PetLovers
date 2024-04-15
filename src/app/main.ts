@@ -16,6 +16,8 @@ import DeletarServico from "../negocio/deletarServico";
 import ListagemClientes from "../negocio/listagemClientes";
 import ListagemClientesQntProduto from "../negocio/listagemClientesQntProduto";
 import ListagemClientesQntServico from "../negocio/listagemClientesQntServico";
+import ListagemClientesValorProduto from "../negocio/listagemClientesValorProduto";
+import ListagemClientesValorServico from "../negocio/listagemClientesValorServico";
 import ListagemProdutos from "../negocio/listagemProdutos";
 import ListagemServicos from "../negocio/listagemServicos";
 import MenuCliente from "../negocio/menuCliente";
@@ -23,39 +25,49 @@ import MenuEmpresa from "../negocio/menuEmpresa";
 import MenuProduto from "../negocio/menuProduto";
 import MenuServico from "../negocio/menuServico";
 
+let produto1 = new Produto("produto1")
+produto1.valor = 13.5
+let produto2 = new Produto("produto2")
+produto2.valor = 15.5
+let produto3 = new Produto("produto3")
+produto3.valor = 20.5
+let produto4 = new Produto("produto4")
+produto4.valor = 10.5
+let produto5 = new Produto("produto5")
+produto5.valor = 30.5
+
+let produtos:Array<Produto> = [
+    produto1,
+    produto2,
+    produto3,
+    produto4,
+    produto5
+]
+
+let servico1 = new Servico("servico1")
+servico1.valor = 13.5
+let servico2 = new Servico("servico2")
+servico2.valor = 15.5
+let servico3 = new Servico("servico3")
+servico3.valor = 20.5
+let servico4 = new Servico("servico4")
+servico4.valor = 10.5
+let servico5 = new Servico("servico5")
+servico5.valor = 30.5
+
+let servicos:Array<Servico> = [
+    servico1,
+    servico2,
+    servico3,
+    servico4,
+    servico5
+]
+
 console.log(`Bem-vindo ao melhor sistema de gerenciamento de pet shops e clínicas veterinarias`)
 let empresa = new Empresa()
 
-let produtos:Array<Produto> = [
-    new Produto("produto1"),
-    new Produto("produto2"),
-    new Produto("produto3"),
-    new Produto("produto4"),
-    new Produto("produto5")
-]
-
-let servicos:Array<Servico> = [
-    new Servico("banho"),
-    new Servico("tosa"),
-    new Servico("consulta")
-]
-
-let clientes:Array<Cliente> = [
-    new Cliente("cliente1", "cliente1", new CPF("12345678901", new Date())),
-    new Cliente("cliente2", "cliente2", new CPF("12345678902", new Date())),
-    new Cliente("cliente3", "cliente3", new CPF("12345678903", new Date())),
-    new Cliente("cliente4", "cliente4", new CPF("12345678904", new Date())),
-    new Cliente("cliente5", "cliente5", new CPF("12345678905", new Date())),
-    new Cliente("cliente6", "cliente6", new CPF("12345678906", new Date())),
-    new Cliente("cliente7", "cliente7", new CPF("12345678907", new Date())),
-    new Cliente("cliente8", "cliente8", new CPF("12345678908", new Date())),
-    new Cliente("cliente9", "cliente9", new CPF("12345678909", new Date())),
-    new Cliente("cliente10", "cliente10", new CPF("12345678910", new Date()))
-]
-
 empresa.setProdutos = produtos
 empresa.setServicos = servicos
-empresa.setClientes = clientes
 
 let menuEmpresa = new MenuEmpresa()
 while (menuEmpresa.execucao) {
@@ -163,12 +175,20 @@ while (menuEmpresa.execucao) {
             }
             break
         case "4":
-            let listagemClientes = new ListagemClientesQntProduto(empresa.getClientes)
-            listagemClientes.listar()
+            let listagemClientesQntProduto = new ListagemClientesQntProduto(empresa.getClientes)
+            listagemClientesQntProduto.listar()
             break
         case "5":
-            let listagemCliente = new ListagemClientesQntServico(empresa.getClientes)
-            listagemCliente.listar()
+            let listagemClientesQntServico = new ListagemClientesQntServico(empresa.getClientes)
+            listagemClientesQntServico.listar()
+            break
+        case "6":
+            let listagemClientesValorProduto = new ListagemClientesValorProduto(empresa.getClientes)
+            listagemClientesValorProduto.listar()
+            break
+        case "7":
+            let listagemClientesValorServico = new ListagemClientesValorServico(empresa.getClientes)
+            listagemClientesValorServico.listar()
             break
         case "0":
             menuEmpresa.execucao = false
