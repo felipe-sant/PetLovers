@@ -16,9 +16,7 @@ export default class CadastroProduto extends Cadastro {
 
         let nome = this.entrada.receberTexto(`Por favor informe o nome do produto: `)
 
-        let produto = new Produto()
-        produto.nome = nome
-
+        let produto = new Produto(nome)
         this.produtos.push(produto)
     }
 }

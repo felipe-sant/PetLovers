@@ -27,8 +27,7 @@ export default class AtualizarProduto extends Atualizar {
             nome = produto.nome
         }
 
-        let novoProduto = new Produto()
-        novoProduto.nome = nome
+        let novoProduto = new Produto(nome)
 
         let indice = this.produtos.indexOf(produto)
         this.produtos[indice] = novoProduto

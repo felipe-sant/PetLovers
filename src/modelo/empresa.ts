@@ -20,4 +20,14 @@ export default class Empresa{
     public get getServicos(){
         return this.servicos
     }
+
+    public set setClientes(clientes: Array<Cliente>){
+        this.clientes = clientes
+    }
+    public set setProdutos(produtos: Array<Produto>){
+        this.produtos = produtos
+    }
+    public set setServicos(servicos: Array<Servico>){
+        this.servicos = servicos
+    }
 }

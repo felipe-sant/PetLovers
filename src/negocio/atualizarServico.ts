@@ -27,8 +27,7 @@ export default class atualizarServico extends Atualizar {
             nome = servico.nome
         }
 
-        let novoServico = new Servico()
-        novoServico.nome = nome
+        let novoServico = new Servico(nome)
 
         let indice = this.servicos.indexOf(servico)
         this.servicos[indice] = novoServico

@@ -28,6 +28,14 @@ export default class ListagemClientes extends Listagem {
             console.log(`Pets:`);
             let listagemPets = new ListagemPets(cliente.getPets)
             listagemPets.listar()
+            console.log("Produtos:")
+            cliente.getProdutosConsumidos.forEach(produto => {
+                console.log("   "+`Nome: ` + produto.nome)
+            })
+            console.log("Serviços:")
+            cliente.getServicosConsumidos.forEach(servico => {
+                console.log("   "+`Nome: ` + servico.nome)
+            })
             let entrada = new Entrada()
             entrada.receberNumero("")
         });

@@ -2,19 +2,27 @@ import Entrada from "../io/entrada"
 import Cliente from "../modelo/cliente"
 import CPF from "../modelo/cpf"
 import Pet from "../modelo/pet"
+import Produto from "../modelo/produto"
 import RG from "../modelo/rg"
+import Servico from "../modelo/servico"
 import Telefone from "../modelo/telefone"
 import Cadastro from "./cadastro"
 import CadastroPet from "./cadastroPet"
+import CadastroProdutosExistentes from "./cadastroProdutosExistentes"
 import CadastroRG from "./cadastroRG"
+import CadastroservicosExistentes from "./cadastroServicosExistentes"
 import CadastroTelefone from "./cadastroTelefone"
 
 export default class CadastroCliente extends Cadastro {
     private clientes: Array<Cliente>
+    private produtos: Array<Produto>
+    private servicos: Array<Servico>
     private entrada: Entrada
-    constructor(clientes: Array<Cliente>) {
+    constructor(clientes: Array<Cliente>, produtos: Array<Produto>, servicos: Array<Servico>) {
         super()
         this.clientes = clientes
+        this.produtos = produtos
+        this.servicos = servicos
         this.entrada = new Entrada()
     }
     public cadastrar(): void {
@@ -71,10 +79,32 @@ export default class CadastroCliente extends Cadastro {
             }
         }
 
+        let produtosConsumidos: Array<Produto> = []
+        while (true) {
+            let cadastroProdutosExistentes = new CadastroProdutosExistentes(produtosConsumidos, this.produtos)
+            cadastroProdutosExistentes.cadastrar()
+            let opcao = this.entrada.receberTexto("deseja registrar mais? (s/n) ")
+            if (opcao.toLowerCase() != "s") {
+                break
+            }
+        }
+
+        let servicosConsumidos: Array<Servico> = []
+        while (true) {
+            let cadastroServicosExistentes = new CadastroservicosExistentes(servicosConsumidos, this.servicos)
+            cadastroServicosExistentes.cadastrar()
+            let opcao = this.entrada.receberTexto("deseja registrar mais? (s/n) ")
+            if (opcao.toLowerCase() != "s") {
+                break
+            }
+        }
+
         let cliente = new Cliente(nome, nomeSocial, cpf);
         cliente.setRgs = rgs
         cliente.setTelefones = telefones
         cliente.setPets = pets
+        cliente.setProdutosConsumidos = produtosConsumidos
+        cliente.setServicosConsumidos = servicosConsumidos
 
         this.clientes.push(cliente)
         console.log(`\nCadastro concluído :)\n`);

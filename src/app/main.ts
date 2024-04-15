@@ -1,5 +1,7 @@
 import Entrada from "../io/entrada";
 import Empresa from "../modelo/empresa";
+import Produto from "../modelo/produto";
+import Servico from "../modelo/servico";
 import AtualizarCliente from "../negocio/atualizarCliente";
 import AtualizarProduto from "../negocio/atualizarProduto";
 import atualizarServico from "../negocio/atualizarServico";
@@ -20,6 +22,21 @@ import MenuServico from "../negocio/menuServico";
 console.log(`Bem-vindo ao melhor sistema de gerenciamento de pet shops e clínicas veterinarias`)
 let empresa = new Empresa()
 
+let produtos:Array<Produto> = [
+    new Produto("racao"),
+    new Produto("cama"),
+    new Produto("brinquedo")
+]
+
+let servicos:Array<Servico> = [
+    new Servico("banho"),
+    new Servico("tosa"),
+    new Servico("consulta")
+]
+
+empresa.setProdutos = produtos
+empresa.setServicos = servicos
+
 let menuEmpresa = new MenuEmpresa()
 while (menuEmpresa.execucao) {
     menuEmpresa.mostrarMenu()
@@ -34,7 +51,7 @@ while (menuEmpresa.execucao) {
                 let opcao = entrada.receberNumero(`Por favor, escolha uma opção: `)
                 switch (opcao) {
                     case 1:
-                        let cadastro = new CadastroCliente(empresa.getClientes)
+                        let cadastro = new CadastroCliente(empresa.getClientes, empresa.getProdutos, empresa.getServicos)
                         cadastro.cadastrar()
                         break;
                     case 2:
@@ -43,7 +60,7 @@ while (menuEmpresa.execucao) {
                         break;
                     case 3:
                         let nomeAtualizar = entrada.receberTexto(`Por favor informe o nome do cliente que deseja atualizar: `)
-                        let atualizar = new AtualizarCliente(empresa.getClientes, nomeAtualizar)
+                        let atualizar = new AtualizarCliente(empresa.getClientes, empresa.getProdutos, empresa.getServicos, nomeAtualizar)
                         atualizar.atualizar()
                         break;
                     case 4:

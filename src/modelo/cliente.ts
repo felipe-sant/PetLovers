@@ -57,4 +57,10 @@ export default class Cliente {
     public set setPets(pets: Array<Pet>){
         this.pets = pets
     }
+    public set setProdutosConsumidos(produtos: Array<Produto>){
+        this.produtosConsumidos = produtos
+    }
+    public set setServicosConsumidos(servicos: Array<Servico>){
+        this.servicosConsumidos = servicos
+    }
 }
