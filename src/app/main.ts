@@ -6,6 +6,8 @@ import DeletarCliente from "../negocio/deletarCliente";
 import ListagemClientes from "../negocio/listagemClientes";
 import MenuCliente from "../negocio/menuCliente";
 import MenuEmpresa from "../negocio/menuEmpresa";
+import MenuProduto from "../negocio/menuProduto";
+import MenuServico from "../negocio/menuServico";
 
 console.log(`Bem-vindo ao melhor sistema de gerenciamento de pet shops e clínicas veterinarias`)
 let empresa = new Empresa()
@@ -50,9 +52,59 @@ while (menuEmpresa.execucao) {
             }
             break;
         case "2":
-            console.log("Em breve")
+            let menuProduto = new MenuProduto()
+            while (menuProduto.execucao) {
+                menuProduto.mostrarMenu()
+                let entrada = new Entrada()
+                let opcao = entrada.receberNumero(`Por favor, escolha uma opção: `)
+                switch (opcao) {
+                    case 1:
+                        console.log("Em breve")
+                        break;
+                    case 2:
+                        console.log("Em breve")
+                        break;
+                    case 3:
+                        console.log("Em breve")
+                        break;
+                    case 4:
+                        console.log("Em breve")
+                        break;
+                    case 0:
+                        menuProduto.execucao = false
+                        break;
+                    default:
+                        console.log(`Operação não entendida :(`)
+                }
+            }
+            break
         case "3":
-            console.log("Em breve")
+            let menuServico = new MenuServico()
+            while (menuServico.execucao) {
+                menuServico.mostrarMenu()
+                let entrada = new Entrada()
+                let opcao = entrada.receberNumero(`Por favor, escolha uma opção: `)
+                switch (opcao) {
+                    case 1:
+                        console.log("Em breve")
+                        break;
+                    case 2:
+                        console.log("Em breve")
+                        break;
+                    case 3:
+                        console.log("Em breve")
+                        break;
+                    case 4:
+                        console.log("Em breve")
+                        break;
+                    case 0:
+                        menuServico.execucao = false
+                        break;
+                    default:
+                        console.log(`Operação não entendida :(`)
+                }
+            }
+            break
         case "0":
             menuEmpresa.execucao = false
             console.log(`Até mais`)

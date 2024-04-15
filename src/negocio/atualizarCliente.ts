@@ -14,7 +14,7 @@ import DeletarRG from "./deletarRG";
 import DeletarTelefone from "./deletarTelefone";
 import ListagemPets from "./listagemPets";
 import ListagemRG from "./listagemRG";
-import ListagemTelefone from "./listagemTelefone";
+import ListagemTelefone from "./listagemTelefones";
 import MenuPet from "./menuPet";
 import MenuRG from "./menuRG";
 import MenuTelefone from "./menuTelefone";

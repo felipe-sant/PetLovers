@@ -3,7 +3,7 @@ import Cliente from "../modelo/cliente";
 import Listagem from "./listagem";
 import ListagemPets from "./listagemPets";
 import ListagemRG from "./listagemRG";
-import ListagemTelefone from "./listagemTelefone";
+import ListagemTelefone from "./listagemTelefones";
 
 export default class ListagemClientes extends Listagem {
     private clientes: Array<Cliente>
