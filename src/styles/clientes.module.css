@@ -35,8 +35,12 @@
 }
 
 .listagem {
-    border: 5px solid lime;
     min-height: 400px;
     max-height: none;
     width: 100%;
+    padding: 40px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
 }

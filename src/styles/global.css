@@ -9,7 +9,9 @@
     --branco: #FFFBDB;
     --amarelo: #FFEC51;
     --vermelho: #FF674D;
-    --preto: #202020
+    --preto: #202020;
+    --vermelhoEscuro: #A94442;
+    --vermelhoClaro: #F2DEDE;
 }
 
 * {

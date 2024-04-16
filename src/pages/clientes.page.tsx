@@ -3,11 +3,12 @@ import Navbar from "../components/navbar.component";
 import Footer from "../components/footer.component";
 import styles from "../styles/clientes.module.css";
 import BotaoAdicionar from "../components/botaoAdicionar.component";
+import ItemCliente from "../components/itemCliente.component";
 
 class Clientes extends React.Component {
     render() {
         const AdicionarCliente = () => {
-            console.log("botao")
+            window.location.href = "/clientes/adicionar";
         }
 
         return (
@@ -25,7 +26,8 @@ class Clientes extends React.Component {
                                 <BotaoAdicionar texto="Adicionar" effect={AdicionarCliente} />
                             </div>
                             <div className={styles.listagem}>
-
+                                <ItemCliente />
+                                <ItemCliente />
                             </div>
                         </main>
                     </div>
