@@ -64,12 +64,11 @@
 .pets {
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: baseline;
 }
 
 .pets button {
-    margin: auto;
-    width: 200px;
+    width: 50%;
     height: 40px;
 
     background-color: var(--azulClaro);

@@ -20,7 +20,7 @@
 
 .conteudo main {
     /* border: 5px solid red; */
-    padding: 80px 0px;
+    padding: 40px 0px;
 }
 
 .botoes {
@@ -38,7 +38,7 @@
     min-height: 400px;
     max-height: none;
     width: 100%;
-    padding: 40px;
+    padding: 20px;
 
     display: flex;
     flex-direction: column;
