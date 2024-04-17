@@ -8,6 +8,7 @@ import Cliente from "../model/cliente";
 import CPF from "../model/cpf";
 import Telefone from "../model/telefone";
 import RG from "../model/rg";
+import Pet from "../model/pet";
 
 let clientes:Array<Cliente> = []
 
@@ -27,14 +28,14 @@ let rg2 = new RG("987654321", new Date())
 rgs1.push(rg1, rg2)
 rgs2.push(rg1)
 
+let pet1:Pet = new Pet("Cacau", "Salsicha", "Fêmea", "Cachorro")
+
 let cliente1 = new Cliente("Gustavo", "", cpf)
 cliente1.setTelefones = telefones1
 cliente1.setRgs = rgs1
-let cliente2 = new Cliente("Pedro Augusto", "Akira dos Santos", cpf)
-cliente2.setTelefones = telefones2
-cliente2.setRgs = rgs2
+cliente1.setPets = [pet1]
 
-clientes.push(cliente1, cliente2)
+clientes.push(cliente1)
 
 class Clientes extends React.Component {
     render() {

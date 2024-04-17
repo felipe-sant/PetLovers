@@ -4,7 +4,7 @@
     border-bottom: 3px solid var(--azul);
     border-radius: 20px;
 
-    padding: 20px;
+    padding: 40px;
 
     width: 100%;
 }
@@ -47,8 +47,7 @@
 }
 
 .informacoesSimples {
-    height: 200px;
-    width: 100%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -62,37 +61,19 @@
 }
 
 .pets {
-    height: 100%;
     display: flex;
-    justify-content: baseline;
-}
-
-.pets button {
-    width: 50%;
-    height: 40px;
-
-    background-color: var(--azulClaro);
-    border: 2px solid var(--azul);
-    border-radius: 10px;
-
-    font-family: var(--text);
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--azul);
-
-    cursor: pointer;
-    transition: color 0.1s;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .informacoesCompostas {
-    height: 200px;
-    width: 100%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.informacao h3 {
+.corpo h3 {
     font-family: var(--text);
     font-size: 1rem;
     font-weight: 700;
@@ -101,6 +82,8 @@
 
 .informacao ul {
     padding: 10px;
+    max-width: 200px;
+    min-width: none;
     border: 2px solid var(--azul);
     border-radius: 10px;
     list-style: none;
@@ -181,4 +164,31 @@
 .excluir:hover {
     background-color: var(--vermelho);
     color: var(--branco);
+}
+
+.item table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.item th {
+    border: 2px solid var(--azul);
+    padding: 10px;
+    font-family: var(--text);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--azul);
+}
+
+.item td {
+    border: 2px solid var(--azul);
+    padding: 10px;
+    font-family: var(--text);
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #202020;
+}
+
+.semItem {
+    text-align: center;
 }
