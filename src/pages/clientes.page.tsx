@@ -41,6 +41,10 @@ class Clientes extends React.Component {
             window.location.href = "/clientes/adicionar";
         }
 
+        const RelatorioClientes = () => {
+            window.location.href = "/clientes/relatorios";
+        }
+
         return (
             <>
                 <Navbar />
@@ -65,7 +69,7 @@ class Clientes extends React.Component {
                     <div className={styles.conteudo}>
                         <main>
                             <div className={styles.botoes}>
-                                <Botao tipo="relatorio" texto="Relatório" effect={() => {}} />
+                                <Botao tipo="relatorio" texto="Relatório" effect={RelatorioClientes} />
                                 <Botao tipo="adicionar" texto="Adicionar" effect={AdicionarCliente} />
                             </div>
                             <div className={styles.listagem}>

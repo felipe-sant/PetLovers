@@ -1,7 +1,7 @@
 import React from "react";
 import Footer from "../components/footer.component";
 import Navbar from "../components/navbar.component";
-import styles from "../styles/produtoServicos.module.css"
+import styles from "../styles/tabelas.module.css"
 import Botao from "../components/botao.component";
 
 class Servicos extends React.Component {
