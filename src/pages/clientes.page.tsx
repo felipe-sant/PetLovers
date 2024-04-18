@@ -2,13 +2,13 @@ import React from "react";
 import Navbar from "../components/navbar.component";
 import Footer from "../components/footer.component";
 import styles from "../styles/clientes.module.css";
-import BotaoAdicionar from "../components/botaoAdicionar.component";
 import ItemCliente from "../components/itemCliente.component";
 import Cliente from "../model/cliente";
 import CPF from "../model/cpf";
 import Telefone from "../model/telefone";
 import RG from "../model/rg";
 import Pet from "../model/pet";
+import Botao from "../components/botao.component";
 
 let clientes:Array<Cliente> = []
 
@@ -65,7 +65,8 @@ class Clientes extends React.Component {
                     <div className={styles.conteudo}>
                         <main>
                             <div className={styles.botoes}>
-                                <BotaoAdicionar texto="Adicionar" effect={AdicionarCliente} />
+                                <Botao tipo="relatorio" texto="Relatório" effect={() => {}} />
+                                <Botao tipo="adicionar" texto="Adicionar" effect={AdicionarCliente} />
                             </div>
                             <div className={styles.listagem}>
                                 {clientes.map(element => {

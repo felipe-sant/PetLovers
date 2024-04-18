@@ -2,6 +2,7 @@ import React from "react";
 import Footer from "../components/footer.component";
 import Navbar from "../components/navbar.component";
 import styles from "../styles/produtoServicos.module.css";
+import Botao from "../components/botao.component";
 
 class Produtos extends React.Component {
     render() {
@@ -9,6 +10,9 @@ class Produtos extends React.Component {
             <>
                 <Navbar />
                 <main className={styles.main}>
+                    <div className={styles.botoes}>
+                        <Botao tipo="adicionar" texto="Adicionar" effect={() => {}} />
+                    </div>
                     <div className={styles.filtro}>
                         <form action="">
                             <input type="text" placeholder="Tipo do Pet"/>
