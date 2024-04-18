@@ -11,7 +11,72 @@
 
 .filtro section {
     width: 100%;
-    height: calc(100vh - 95px);
+    padding-top: 40px;
+}
+
+.filtro section h2 {
+    font-size: 1.5rem;
+    color: var(--azulEscuro);
+    font-family: var(--title);
+    text-align: center;
+}
+
+.form {
+    height: calc(100% - 20px);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.formHead {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+}
+
+.formBody {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    height: calc(100% - 160px);
+    padding: 20px;
+}
+
+.formBody input {
+    height: 40px;
+    border: 1px solid var(--azulEscuro);
+    border-radius: 5px;
+    padding: 0px 10px;
+    font-family: var(--text);
+}
+
+.formFooter {
+    height: 60px;
+    padding: 0px 20px;
+
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.formFooter input {
+    background-color: transparent;
+    border: 2px solid var(--azul);
+    border-radius: 20px;
+    height: 40px;
+    width: 100px;
+    font-family: var(--text);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--azul);
+    cursor: pointer;
+    transition: 0.3s;
+}	
+
+.formFooter input:hover {
+    background-color: var(--azul);
+    color: var(--branco);
 }
 
 .conteudo {

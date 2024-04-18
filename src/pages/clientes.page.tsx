@@ -14,26 +14,24 @@ let clientes:Array<Cliente> = []
 
 let cpf = new CPF("513.321.314-51", new Date())
 
-let telefones1:Array<Telefone> = []
-let telefones2:Array<Telefone> = []
+let telefones:Array<Telefone> = []
 let telefone1 = new Telefone("11", "999999999")
-let telefone2 = new Telefone("11", "888888888")
-telefones1.push(telefone1)
-telefones2.push(telefone1, telefone2)
+telefones.push(telefone1)
 
-let rgs1:Array<RG> = []
-let rgs2:Array<RG> = []
+let rgs:Array<RG> = []
 let rg1 = new RG("123456789", new Date())
 let rg2 = new RG("987654321", new Date())
-rgs1.push(rg1, rg2)
-rgs2.push(rg1)
+rgs.push(rg1, rg2)
 
-let pet1:Pet = new Pet("Cacau", "Salsicha", "Fêmea", "Cachorro")
+let pets:Array<Pet> = []
+let pet1:Pet = new Pet("melao (Mellow)", "Amarelo", "Macho", "Gato")
 
-let cliente1 = new Cliente("Gustavo", "", cpf)
-cliente1.setTelefones = telefones1
-cliente1.setRgs = rgs1
-cliente1.setPets = [pet1]
+pets.push(pet1)
+
+let cliente1 = new Cliente("Felipe", "Luiz Felipe", cpf)
+cliente1.setTelefones = telefones
+cliente1.setRgs = rgs
+cliente1.setPets = pets
 
 clientes.push(cliente1)
 
@@ -49,7 +47,19 @@ class Clientes extends React.Component {
                 <div className={styles.body}>
                     <div className={styles.filtro}>
                         <section>
-                            filtrando papai xd
+                            <form action="" className={styles.form}>
+                                <div className={styles.formHead}>
+                                    <h2>- Filtro -</h2>
+                                </div>
+                                <div className={styles.formBody}>
+                                    <input type="text" placeholder="Nome" />
+                                    <input type="text" placeholder="CPF" />
+                                    <input type="date" placeholder="Data de Registro" />
+                                </div>
+                                <div className={styles.formFooter}>
+                                    <input type="button" value="Pesquisar" />
+                                </div>
+                            </form>
                         </section>
                     </div>
                     <div className={styles.conteudo}>

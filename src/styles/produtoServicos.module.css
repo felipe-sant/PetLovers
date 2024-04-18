@@ -1,0 +1,71 @@
+.filtro form {
+    background-color: var(--azul);
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-around;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.filtro form input {
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    padding: 0px 10px;
+    font-family: var(--text);
+}
+
+.filtro form button {
+    border: 2px solid var(--azulClaro);
+    border-radius: 20px;
+    background-color: var(--azul);
+    padding: 5px 20px;
+    color: var(--branco);
+    font-weight: 600;
+    font-size: 0.9rem;
+    font-family: var(--text);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filtro form button:hover {
+    background-color: var(--azulClaro);
+    color: var(--azul);
+}
+
+.tabela {
+    background-color: var(--azulClaro);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding-bottom: 10px;
+    min-height: calc(100vh - 350px);
+    max-height: auto;
+}
+
+.tabela table {
+    width: 100%;
+    border-collapse: collapse;
+
+    font-family: var(--text);
+}
+
+.tabela table thead {
+    background-color: var(--azul);
+    color: var(--branco);
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-bottom: 1px solid var(--azulClaro);
+}
+
+.tabela table thead th {
+    padding: 10px;
+}
+
+.tabela table tbody tr td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 2px solid var(--azul);
+}
+
