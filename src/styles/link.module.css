@@ -1,0 +1,37 @@
+.conteudo {
+    background-color: var(--azulClaro);
+
+    width: 200px;
+    height: 80px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    align-content: center;
+
+    border: 2px solid var(--azul);
+    border-bottom: 3.5px solid var(--azul);
+    border-radius: 20px;
+
+    text-align: center;
+    text-decoration: none;
+    color: var(--preto);
+
+    transition: 0.1s;
+}
+
+.conteudo:hover {
+    background-color: var(--azul);
+    color: var(--branco);
+}
+
+.conteudo h3 {
+    font-size: 1.2rem;
+    font-family: var(--title);
+}
+
+.conteudo p {
+    font-size: 0.8rem;
+    font-family: var(--text);
+}

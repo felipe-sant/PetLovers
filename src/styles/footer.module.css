@@ -1,0 +1,15 @@
+.footer {
+    background-color: var(--azul);
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer a {
+    text-decoration: none;
+    font-family: var(--title);
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: var(--branco);
+}
