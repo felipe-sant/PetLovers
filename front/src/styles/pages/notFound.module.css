@@ -1,0 +1,15 @@
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    height: 100vh;
+    font-family: var(--texto);
+}
+
+.body p {
+    margin-top: 20px;
+    color: var(--azul);
+    cursor: pointer;
+}

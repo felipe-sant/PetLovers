@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Platypi:ital,wght@0,300..800;1,300..800&display=swap');
+
+:root {
+    --titulo: 'Platypi', sans-serif;
+    --texto: 'Open Sans', sans-serif;
+
+    --azul: #7776BC;
+    --azulClaro: #CDC7E5;
+    --azulEscuro: #64639c;
+    --branco: #FFFBDB;
+    --amarelo: #FFEC51;
+    --vermelho: #FF674D;
+    --preto: #202020;
+    --vermelhoEscuro: #A94442;
+    --vermelhoClaro: #F2DEDE;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--branco);
+}
