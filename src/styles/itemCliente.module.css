@@ -119,29 +119,7 @@
 
 .footer {
     display: flex;
-    justify-content: space-between;
-}
-
-.editar {
-    width: 100px;
-    height: 40px;
-
-    background-color: none;
-    border: 2px solid var(--azul);
-    border-radius: 10px;
-
-    font-family: var(--text);
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--azul);
-
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.editar:hover {
-    background-color: var(--azul);
-    color: var(--branco);
+    justify-content: end;
 }
 
 .excluir {

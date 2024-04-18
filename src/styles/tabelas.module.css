@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: row;
     justify-content: end;
+    margin-top: 20px;
     margin-bottom: 40px;
 }
 
@@ -49,6 +50,7 @@
     min-height: calc(100vh - 420px);
     padding-bottom: 20px;
     height: auto;
+    border: 2px solid var(--azul);
 }
 
 .tabela table {
@@ -59,20 +61,19 @@
 }
 
 .tabela table thead {
-    background-color: var(--azul);
-    color: var(--branco);
+    color: var(--preto);
     font-weight: 600;
     font-size: 1.1rem;
-    border-bottom: 1px solid var(--azulClaro);
 }
 
 .tabela table thead th {
     padding: 10px;
+    border: 2px solid var(--azul);
 }
 
 .tabela table tbody tr td {
     padding: 10px;
     text-align: center;
-    border-bottom: 2px solid var(--azul);
+    border-bottom: 1px solid var(--azul);
 }
 

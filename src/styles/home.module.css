@@ -3,6 +3,7 @@
     font-size: 1.8rem;
     color: var(--vermelho);
     border-bottom: 2px solid var(--vermelho);
+    margin-top: 40px;
 }
 
 .textos {

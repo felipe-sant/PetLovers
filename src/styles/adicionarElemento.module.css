@@ -1,0 +1,168 @@
+.form {
+    /* border: 1px solid purple; */
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    padding: 20px;
+}
+
+.formHead {
+    /* border: 1px solid red; */
+
+    display: flex;
+}
+
+.formHead h2 {
+    width: 100%;
+    color: var(--azul);
+    font-size: 1.7rem;
+    font-family: var(--title);
+    text-align: center;
+}
+
+.formBody {
+    /* border: 1px solid blue; */
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.formBody .formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.formBody .formGroup label {
+    color: var(--preto);
+    font-family: var(--text);
+    font-size: 1.1rem;
+}
+
+.formBody .formGroup input {
+    padding: 10px;
+    
+    height: 44px;
+    border: 1px solid var(--azulClaro);
+    border-radius: 5px;
+    font-family: var(--text);
+    font-size: 1rem;
+    color: var(--preto);
+    width: 100%;
+}
+
+.formBody .formGroup select {
+    padding: 10px;
+    
+    height: 44px;
+    border: 1px solid var(--azulClaro);
+    border-radius: 5px;
+    font-family: var(--text);
+    font-size: 1rem;
+    color: var(--preto);
+    width: 100%;
+}
+
+.formAddElement {
+    width: 100%;
+    display: flex;
+    gap: 5px;
+}
+
+.formAddElement div {
+    width: 100%;
+    display: flex;
+    gap: 5px;
+}
+
+.formAddElement button {
+    color: var(--preto);
+    font-weight: 700;
+    font-family: var(--text);
+    font-size: 1rem;
+    border: 1px solid var(--azulClaro);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 44px;
+}
+
+.formAddElement button:hover {
+    background-color: var(--azulClaro);
+}
+
+.formList {
+    background-color: var(--branco);
+    border: 1px solid var(--azulClaro);
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.formListElement {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-family: var(--text);
+    font-size: 0.9rem;
+    color: var(--preto);
+
+    height: 25px;
+}
+
+.formListElement button {
+    color: var(--preto);
+    font-weight: 700;
+    font-family: var(--text);
+    font-size: 1rem;
+    border: 1px solid var(--azulClaro);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 25px;
+    height: 25px;
+}
+
+.formListElement button:hover {
+    background-color: var(--vermelho);
+}
+
+.formElement {
+    display: flex;
+    gap: 10px;
+}
+
+.formFooter {
+    /* border: 1px solid green; */
+    padding: 20px;
+    display: flex;
+    justify-content: end;
+}
+
+.formFooter button {
+    padding: 10px 20px;
+    background-color: var(--azul);
+    color: white;
+    font-weight: 600;
+    font-family: var(--text);
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.formFooter button:hover {
+    background-color: var(--azulEscuro);
+}
+
+.required::after {
+    content: "*";
+    color: red;
+}

@@ -136,9 +136,6 @@ class ItemCliente extends React.Component<ItemClienteProps> {
                 </div>
                 <hr />
                 <div className={styles.footer}>
-                    <button className={styles.editar}>
-                        Editar
-                    </button>
                     <button className={styles.excluir}>
                         Deletar
                     </button>
