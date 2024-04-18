@@ -6,12 +6,16 @@ import Botao from "../components/botao.component";
 
 class Produtos extends React.Component {
     render() {
+        const AdicionarProduto = () => {
+            window.location.href = "/produtos/adicionar";
+        }
+
         return (
             <>
                 <Navbar />
                 <main className={styles.main}>
                     <div className={styles.botoes}>
-                        <Botao tipo="adicionar" texto="Adicionar" effect={() => {}} />
+                        <Botao tipo="adicionar" texto="Adicionar" effect={AdicionarProduto} />
                     </div>
                     <div className={styles.filtro}>
                         <form action="">
