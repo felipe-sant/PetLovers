@@ -21,6 +21,6 @@ O projeto consiste em criar um sistema de gerenciamento de Petshops utilizando d
 |------------|-------------------------------------------------------|---| 
 | atv1       | <span style="color:green">Concluído</span>            |🟢|
 | atv2       | <span style="color:yellow">Concluído</span>           |🟢|
-| atv3       | <span style="color:red">Em desenvolvimento</span>     |🟡|
-| atv4       | <span style="color:red">Não iniciado</span>           |🔴|
+| atv3       | <span style="color:yellow">Concluído</span>           |🟢|
+| atv4       | <span style="color:red">Em desenvolvimento</span>     |🟡|
 | atv5       | <span style="color:red">Não iniciado</span>           |🔴|
