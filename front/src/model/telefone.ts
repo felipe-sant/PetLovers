@@ -20,4 +20,11 @@ export default class Telefone {
     public setId(id: number): void {
         this.id = id;
     }
+
+    public mostrarTelefone(): string {
+        let ddd = this.ddd
+        let numero = this.numero
+
+        return "(" + ddd + ") " + numero 
+    }
 }

@@ -2,7 +2,7 @@ import Cliente from "../model/cliente"
 import Endereco from "../model/endereco"
 import Telefone from "../model/telefone"
 
-const transformarDadosEmCliente = (data: any) => {
+const transformarDadosEmClientes = (data: any) => {
     let listaDeClientes: Cliente[] = []
     if (data.length > 0) {
         data.forEach((cliente: any) => {
@@ -43,4 +43,4 @@ const transformarDadosEmCliente = (data: any) => {
     return listaDeClientes
 }
 
-export default transformarDadosEmCliente
+export default transformarDadosEmClientes

@@ -1,0 +1,118 @@
+.item {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 20px;
+    background-color: var(--azulClaro);
+    border: 2px solid var(--azul);
+    border-radius: 20px;
+    font-family: var(--texto);
+    color: var(--preto)
+}
+
+.parteSuperior {
+    display: flex;
+    justify-content: space-between;
+    align-items: top;
+}
+
+.parteSuperior .nomes {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.parteSuperior .nomes h3 {
+    color: #202020ae;
+    font-weight: 500;
+}
+
+.parteSuperior .id {
+    color: #202020ae;
+    font-weight: 500;
+}
+
+.parteMedia {
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.parteMedia > div {    
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.parteMedia .esquerda {
+    /* background-color: purple; */
+    width: 100%;
+}
+
+.parteMedia .direita {
+    /* background-color: lime; */
+    width: 100%;
+}
+
+.parteMedia .informacao {
+    /* background-color: orange; */
+    padding: 5px;
+}
+
+.parteMedia .informacaoNome {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.parteMedia .informacaoDetalhes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 0px;
+    gap: 10px;
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid var(--azul);
+    min-height: 40px;
+    max-height: auto;
+}
+
+.parteInferior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.parteInferior button {
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-family: var(--texto);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.parteInferior .editar {
+    background-color: var(--azul);
+    border: 2px solid var(--azulEscuro);
+    color: var(--branco);
+}
+
+.parteInferior .editar:hover {
+    background-color: var(--azulEscuro);
+}
+
+.parteInferior .deletar {
+    background-color: var(--vermelho);
+    border: 2px solid var(--vermelhoEscuro);
+    color: var(--branco);
+}
+
+.parteInferior .deletar:hover {
+    background-color: var(--vermelhoEscuro);
+}

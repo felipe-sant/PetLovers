@@ -4,9 +4,11 @@ import Navbar from "../components/navbar.component";
 import styles from "../styles/pages/clientesRead.module.css";
 import Cliente from "../model/cliente";
 import buscarDados from "../functions/buscarDados";
-import transformarDadosEmCliente from "../functions/transformarDadosEmCliente";
+import transformarDadosEmClientes from "../functions/transformarDadosEmClientes";
+import ClienteItem from "../components/clienteItem.component";
 
 export default function ClientesRead() {
+    const [dados, setDados] = useState<any[]>([{}])
     const [clientes, setClientes] = useState<Cliente[]>([])
     const [loading, setLoading] = useState<boolean>(true)
 
@@ -14,7 +16,8 @@ export default function ClientesRead() {
         try {
             const url = 'http://localhost:32831/cliente/clientes'
             const $dados = await buscarDados(url)
-            const $clientes = transformarDadosEmCliente($dados)
+            const $clientes = transformarDadosEmClientes($dados)
+            setDados($dados)
             setClientes($clientes)
         } catch (error) {
             console.log(error)
@@ -27,16 +30,20 @@ export default function ClientesRead() {
         buscarCliente()
     }, [])
 
-    const listarClientes = () => {
+    const teste = () => {
         console.log(clientes)
-        console.log(loading)
     }
 
     return (
         <>
             <Navbar />
             <main className={styles.main}>
-                <button onClick={listarClientes}>listar clientes</button>
+                <button onClick={teste}>teste</button>
+                <div className={styles.lista}>
+                    {clientes.map(cliente => {
+                        return <ClienteItem cliente={cliente} />
+                    })}
+                </div>
             </main>
             <Footer />
         </>

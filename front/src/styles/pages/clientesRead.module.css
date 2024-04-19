@@ -1,7 +1,11 @@
 .main {
-    border: 2px solid red;
+    padding: 80px 40px;
 }
 
-.main button {
-    margin: 10px;
+.lista {
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
 }

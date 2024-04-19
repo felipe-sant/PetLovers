@@ -29,4 +29,8 @@ export default class Cliente {
     public setId(id: number): void {
         this.id = id;
     }
+
+    public adicionarTelefone(telefone: Telefone): void {
+        this.telefones.push(telefone);
+    }
 }

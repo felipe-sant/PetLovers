@@ -7,6 +7,7 @@ export default function Home() {
             <Navbar />
             <main>
                 <h1>Home</h1>
+                <p>ola</p>
             </main>
             <Footer />
         </>
