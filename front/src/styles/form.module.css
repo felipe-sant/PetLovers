@@ -1,0 +1,109 @@
+.form {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+.formBody {
+    /* background-color: blue; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.formElement {
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px;
+}
+
+.formElement label {
+    font-family: var(--texto);
+    font-weight: 600;
+}
+
+.formElement input {
+    padding: 5px 10px;
+    min-height: 40px;
+    border: 1px solid var(--azulClaro);
+    border-radius: 5px;
+    width: 100%;
+}
+
+.formElement div {
+    /* background-color: red; */
+    min-height: 40px;
+    max-height: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.formElement div button {
+    background-color: var(--branco);
+    border: 2px solid var(--azulClaro);
+    border-radius: 5px;
+
+    height: 30px;
+    width: 30px;
+
+    font-family: var(--texto);
+    font-weight: 900;
+    color: var(--preto);
+    
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.formElement div button:hover {
+    background-color: var(--azulClaro);
+}
+
+.formElement div ul {
+    /* background-color: red; */
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--azulClaro);
+    border-radius: 5px;
+}
+
+.formElement div ul li {
+    margin: 5px;
+}
+
+.formFooter {
+    /* background-color: red; */
+    display: flex;
+    justify-content: flex-end;
+}
+
+.formFooter button {
+    background-color: var(--azul);
+    border: 2px solid var(--azulEscuro);
+    border-radius: 10px;
+
+    padding: 10px 20px;
+
+    font-family: var(--texto);
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--branco);
+
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.formFooter button:hover {
+    background-color: var(--azulEscuro);
+}
+
+.required::after {
+    content: "*";
+    color: var(--vermelho);
+}

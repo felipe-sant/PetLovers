@@ -38,7 +38,6 @@ export default function ClientesRead() {
         <>
             <Navbar />
             <main className={styles.main}>
-                <button onClick={teste}>teste</button>
                 <div className={styles.lista}>
                     {clientes.map(cliente => {
                         return <ClienteItem cliente={cliente} />
