@@ -32,6 +32,7 @@
     border: 1px solid var(--azulClaro);
     border-radius: 5px;
     width: 100%;
+    font-family: var(--texto);
 }
 
 .formElement div {
@@ -44,10 +45,14 @@
     align-items: baseline;
 }
 
-.formElement div button {
+.formElement div .button {
     background-color: var(--branco);
     border: 2px solid var(--azulClaro);
     border-radius: 5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     height: 30px;
     width: 30px;
@@ -60,7 +65,7 @@
     transition: all 0.3s;
 }
 
-.formElement div button:hover {
+.formElement div .button:hover {
     background-color: var(--azulClaro);
 }
 
@@ -71,6 +76,8 @@
     flex-direction: column;
     border: 1px solid var(--azulClaro);
     border-radius: 5px;
+    font-family: var(--texto);
+    font-size: 0.9rem;
 }
 
 .formElement div ul li {

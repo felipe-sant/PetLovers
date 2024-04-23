@@ -6,12 +6,12 @@ export default class Endereco {
     public rua: string;
     public numero: string;
     public codigoPostal: string;
-    public informacoesAdicionais?: string;
+    public informacoesAdicionais?: string | undefined;
 
-    constructor(estado: string, cidade: string, bairro: string, rua: string, numero: string, codigoPostal: string, informacoesAdicionais: string, id: number)
-    constructor(estado: string, cidade: string, bairro: string, rua: string, numero: string, codigoPostal: string, informacoesAdicionais: string)
+    constructor(estado: string, cidade: string, bairro: string, rua: string, numero: string, codigoPostal: string, informacoesAdicionais: string | undefined, id: number)
+    constructor(estado: string, cidade: string, bairro: string, rua: string, numero: string, codigoPostal: string, informacoesAdicionais: string | undefined)
     constructor(estado: string, cidade: string, bairro: string, rua: string, numero: string, codigoPostal: string)
-    constructor(estado: string, cidade: string, bairro: string, rua: string, numero: string, codigoPostal: string, informacoesAdicionais?: string, id?: number) {
+    constructor(estado: string, cidade: string, bairro: string, rua: string, numero: string, codigoPostal: string, informacoesAdicionais?: string | undefined, id?: number) {
         this.estado = estado;
         this.cidade = cidade;
         this.bairro = bairro;
