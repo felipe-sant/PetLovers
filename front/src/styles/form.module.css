@@ -36,9 +36,7 @@
 }
 
 .formElement div {
-    /* background-color: red; */
-    min-height: 40px;
-    max-height: auto;
+    height: 0;
 
     display: flex;
     justify-content: space-between;
@@ -84,6 +82,11 @@
     margin: 5px;
 }
 
+.formElement div ul li:hover {
+    color: var(--vermelhoEscuro);
+    cursor: pointer;
+}
+
 .formFooter {
     /* background-color: red; */
     display: flex;
@@ -116,6 +119,12 @@
 
 .inputError {
     border: 1px solid var(--vermelhoEscuro) !important;
+}
+
+.errorId {
+    color: var(--vermelhoEscuro);
+    font-family: var(--texto);
+    font-size: 0.9rem;
 }
 
 .error {

@@ -5,8 +5,13 @@ import Endereco from "../model/endereco"
 import Cliente from "../model/cliente"
 import transformarClienteEmDados from "../functions/transformarClienteEmDado"
 import cadastrarDados from "../functions/cadastrarDados"
+import atualizarDados from "../functions/atualizarDados"
+import buscarDado from "../functions/buscarDados"
+import transformarDadosEmClientes from "../functions/transformarDadosEmClientes"
+import buscarDados from "../functions/buscarDados"
 
-export default function ClienteForm() {
+export default function ClienteForm(props: { tipo: string }) {
+    const [id, setId] = useState<number | undefined>(undefined)
     const [nome, setNome] = useState<string>("")
     const [nomeSocial, setNomeSocial] = useState<string>("")
     const [email, setEmail] = useState<string>("")
@@ -20,6 +25,8 @@ export default function ClienteForm() {
     const [telefones, setTelefones] = useState<Telefone[]>([])
     const [numeroTelefone, setNumeroTelefone] = useState<string>("")
     const [error, setError] = useState<string>("")
+    const [errorId, setErrorId] = useState<boolean>(false)
+    const [errorIdMessage, setErrorIdMessage] = useState<string>("")
     const [errorNome, setErrorNome] = useState<boolean>(false)
     const [errorEmail, setErrorEmail] = useState<boolean>(false)
     const [errorEstado, setErrorEstado] = useState<boolean>(false)
@@ -29,6 +36,16 @@ export default function ClienteForm() {
     const [errorNumeroEndereco, setErrorNumeroEndereco] = useState<boolean>(false)
     const [errorCodigoPostal, setErrorCodigoPostal] = useState<boolean>(false)
     const [errorTelefone, setErrorTelefone] = useState<boolean>(false)
+    const tipoDoForm = props.tipo
+
+    const handleChangeId = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (errorId || errorIdMessage) {
+            setError("")
+            setErrorId(false)
+            setErrorIdMessage("")
+        }
+        setId(Number(event.target.value))
+    }
 
     const handleChangeNome = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (errorNome) {
@@ -110,6 +127,18 @@ export default function ClienteForm() {
         setNumeroTelefone(event.target.value)
     }
 
+    async function buscarCliente(identificador: number) {
+        try {
+            console.log(identificador)
+            const url = 'http://localhost:32831/cliente/' + identificador
+            const $dados = await buscarDados(url)
+            const $clientes = transformarDadosEmClientes([$dados])
+            return $clientes
+        } catch (error) {
+            return false
+        }
+    }
+
     function adicionarTelefone() {
         setError("")
         setErrorTelefone(false)
@@ -121,7 +150,45 @@ export default function ClienteForm() {
         }
     }
 
+    function removerTelefone(index: number) {
+        const newTelefones = telefones.filter((telefone, i) => i !== index)
+        setTelefones(newTelefones)
+    }
+
+    async function inserirCliente() {
+        if (id !== undefined) {
+            const clienteExiste = await buscarCliente(id)
+            if (!clienteExiste) {
+                setErrorId(true)
+                setErrorIdMessage("Cliente não encontrado")
+            } else {
+                setNome(clienteExiste[0].nome)
+                setNomeSocial(clienteExiste[0].nomeSocial)
+                setEmail(clienteExiste[0].email)
+                setEstado(clienteExiste[0].endereco.estado)
+                setCidade(clienteExiste[0].endereco.cidade)
+                setBairro(clienteExiste[0].endereco.bairro)
+                setRua(clienteExiste[0].endereco.rua)
+                setNumeroEndereco(clienteExiste[0].endereco.numero)
+                setCodigoPostal(clienteExiste[0].endereco.codigoPostal)
+                setInformacoesAdicionais(clienteExiste[0].endereco.informacoesAdicionais)
+                setTelefones(clienteExiste[0].telefones)
+                setErrorId(false)
+                setErrorIdMessage("")
+            }
+        } else {
+            setErrorId(true)
+        }
+    }
+
     function verificarDados() {
+        if (tipoDoForm === "Atualizar" && id === undefined) {
+            setErrorId(true)
+            return
+        } else {
+            setErrorId(false)
+        }
+
         if (nome === "") {
             setErrorNome(true)
             return
@@ -186,7 +253,7 @@ export default function ClienteForm() {
         }
     }
 
-    function cadastrar() {
+    async function cadastrar() {
         if (nome === "" || email === "" || estado === "" || cidade === "" || bairro === "" || rua === "" || numeroEndereco === "" || codigoPostal === "" || telefones.length === 0) {
             setError("Preencha todos os campos obrigatórios")
             verificarDados()
@@ -196,15 +263,57 @@ export default function ClienteForm() {
             const cliente = new Cliente(nome, nomeSocial, email, endereco, telefones)
 
             const clienteJson = transformarClienteEmDados(cliente)
-            cadastrarDados('http://localhost:32831/cliente/cadastrar', clienteJson)
+            await cadastrarDados('http://localhost:32831/cliente/cadastrar', clienteJson)
 
             window.location.href = "/listar"
         }
     }
 
+    async function atualizar() {
+        if (id === undefined || nome === "" || email === "" || estado === "" || cidade === "" || bairro === "" || rua === "" || numeroEndereco === "" || codigoPostal === "" || telefones.length === 0) {
+            setError("Preencha todos os campos obrigatórios")
+            verificarDados()
+            return
+        } else {
+            const clienteExiste = buscarCliente(id)
+            if (!clienteExiste) {
+                setError("Cliente não encontrado")
+                setErrorId(true)
+                return
+            } else {
+                const endereco = new Endereco(estado, cidade, bairro, rua, numeroEndereco, codigoPostal, informacoesAdicionais)
+                const newCliente = new Cliente(nome, nomeSocial, email, endereco, telefones, id)
+
+                const clienteJson = transformarClienteEmDados(newCliente)
+                await atualizarDados('http://localhost:32831/cliente/atualizar', clienteJson)
+
+                window.location.href = "/listar"
+            }
+        }
+    }
+
+    function tipo() {
+        if (tipoDoForm === "Cadastrar") {
+            cadastrar()
+        } else if (tipoDoForm === "Atualizar") {
+            atualizar()
+        }
+    }
+
+    var inputID =
+        <div className={styles.formElement}>
+            <label htmlFor="id" className={styles.required}>ID</label>
+            <input className={errorId ? styles.inputError : ""} onChange={handleChangeId} type="number" placeholder="ID" id="id" />
+            <div>
+                <div className={styles.errorId}>{errorIdMessage}</div>
+                <span className={styles.button} onClick={inserirCliente}>+</span>
+            </div>
+        </div>
+
     return (
         <form action="" className={styles.form}>
             <div className={styles.formBody}>
+                {tipoDoForm === "Atualizar" ? inputID : <></>}
                 <div className={styles.formElement}>
                     <label htmlFor="nome" className={styles.required} onClick={() => { console.log(nome) }}>Nome</label>
                     <input className={errorNome ? styles.inputError : ""} onChange={handleChangeNome} value={nome} type="text" placeholder="Nome do cliente" id="nome" />
@@ -235,7 +344,9 @@ export default function ClienteForm() {
                             {
                                 telefones.map((telefone, index) => {
                                     return (
-                                        <li key={index} >{telefone.mostrarTelefone()}</li>
+                                        <li key={index} onClick={() => {
+                                            removerTelefone(index)
+                                        }}>{telefone.mostrarTelefone()}</li>
                                     )
                                 })
                             }
@@ -248,7 +359,7 @@ export default function ClienteForm() {
                 </div>
             </div>
             <div className={styles.formFooter}>
-                <div className={styles.button} onClick={cadastrar}>Cadastrar</div>
+                <div className={styles.button} onClick={tipo}>{tipoDoForm}</div>
             </div>
         </form>
     )

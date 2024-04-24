@@ -83,13 +83,18 @@
     font-size: 0.8rem;
 }
 
+.parteMedia details.informacao .informacaoNome {
+    width: 90px;
+    cursor: pointer;
+}
+
 .parteMedia details.informacao .informacaoDetalhes {
     padding: 15px;
 }
 
 .parteInferior {
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     align-items: center;
 }
 

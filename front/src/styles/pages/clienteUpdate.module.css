@@ -1,0 +1,15 @@
+.main {
+    padding: 80px 40px;
+}
+
+.main h1 {
+    font-family: var(--texto);
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.formulario {
+    min-height: 500px;
+    max-height: auto;
+}

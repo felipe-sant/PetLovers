@@ -72,7 +72,6 @@ export default function ClienteItem(props: { cliente: Cliente }) {
                 </div>
             </div>
             <div className={styles.parteInferior}>
-                <button className={styles.editar}>Editar</button>
                 <button className={styles.deletar} onClick={deletar}>Deletar</button>
             </div>
         </div>
