@@ -31,9 +31,9 @@ export default function ClienteForm() {
     const [errorTelefone, setErrorTelefone] = useState<boolean>(false)
 
     const handleChangeNome = (event: React.ChangeEvent<HTMLInputElement>) => {
-        if (errorNome) { 
+        if (errorNome) {
             setError("")
-            setErrorNome(false) 
+            setErrorNome(false)
         }
         setNome(event.target.value)
     }

@@ -6,7 +6,7 @@ import { TelefoneType } from "../types/telefoneType"
 
 const transformarClienteEmDados = (cliente: Cliente): ClienteType => {
     const endereco = cliente.endereco
-    let enderecoObj:EnderecoType = {
+    let enderecoObj: EnderecoType = {
         id: endereco.getId(),
         estado: endereco.estado,
         cidade: endereco.cidade,
@@ -17,9 +17,9 @@ const transformarClienteEmDados = (cliente: Cliente): ClienteType => {
         informacoesAdicionais: endereco.informacoesAdicionais
     }
 
-    let listaTelefones:TelefoneType[] = []
+    let listaTelefones: TelefoneType[] = []
     cliente.telefones.forEach((telefone: Telefone) => {
-        let telefoneObj:TelefoneType = {
+        let telefoneObj: TelefoneType = {
             id: telefone.getId(),
             ddd: telefone.ddd,
             numero: telefone.numero
@@ -27,7 +27,7 @@ const transformarClienteEmDados = (cliente: Cliente): ClienteType => {
         listaTelefones.push(telefoneObj)
     })
 
-    let clienteObj:ClienteType = {
+    let clienteObj: ClienteType = {
         id: cliente.getId(),
         nome: cliente.nome,
         nomeSocial: cliente.nomeSocial,

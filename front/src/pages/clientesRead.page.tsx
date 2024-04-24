@@ -30,12 +30,12 @@ export default function ClientesRead() {
 
     var render
     if (loading) {
-        render = 
+        render =
             <div className={styles.semCliente}>
                 <strong>Carregando clientes...</strong>
             </div>
     } else if (clientes.length === 0) {
-        render = 
+        render =
             <div className={styles.semCliente}>
                 <strong>Nenhum cliente cadastrado.</strong>
                 <div>:(</div>

@@ -4,7 +4,7 @@ export default class Telefone {
     public numero: string;
 
     constructor(ddd: string, numero: string, id: number)
-    constructor(ddd: string, numero: string) 
+    constructor(ddd: string, numero: string)
     constructor(ddd: string, numero: string, id?: number) {
         this.ddd = ddd;
         this.numero = numero;
@@ -25,6 +25,6 @@ export default class Telefone {
         let ddd = this.ddd
         let numero = this.numero
 
-        return "(" + ddd + ") " + numero 
+        return "(" + ddd + ") " + numero
     }
 }

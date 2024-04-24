@@ -1,4 +1,4 @@
-async function cadastrarDados(url:string, dados:any) {
+async function cadastrarDados(url: string, dados: any) {
     try {
         const response = await fetch(url, {
             method: 'POST',

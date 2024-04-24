@@ -5,7 +5,7 @@ export type ClienteType = {
     id: number | undefined,
     nome: string,
     nomeSocial: string,
-    email:string,
+    email: string,
     endereco: EnderecoType,
     telefones: TelefoneType[]
 }
