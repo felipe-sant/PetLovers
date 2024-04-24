@@ -1,7 +1,7 @@
 .item {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 20px;
     padding: 20px;
     background-color: var(--azulClaro);
     border: 2px solid var(--azul);
@@ -25,11 +25,13 @@
 .parteSuperior .nomes h3 {
     color: #202020ae;
     font-weight: 500;
+    font-size: 0.9rem;
 }
 
 .parteSuperior .id {
     color: #202020ae;
     font-weight: 500;
+    font-size: 0.9rem
 }
 
 .parteMedia {
@@ -43,7 +45,7 @@
 .parteMedia > div {    
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
 }
 
 .parteMedia .esquerda {
@@ -63,7 +65,7 @@
 
 .parteMedia .informacaoNome {
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 .parteMedia .informacaoDetalhes {
@@ -78,6 +80,11 @@
     border: 1px solid var(--azul);
     min-height: 40px;
     max-height: auto;
+    font-size: 0.8rem;
+}
+
+.parteMedia details.informacao .informacaoDetalhes {
+    padding: 15px;
 }
 
 .parteInferior {
@@ -89,9 +96,10 @@
 .parteInferior button {
     border: none;
     border-radius: 10px;
-    padding: 10px 20px;
+    margin-top: 40px;
+    padding: 5px 15px;
     font-family: var(--texto);
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 500;
     cursor: pointer;
     transition: 0.3s;

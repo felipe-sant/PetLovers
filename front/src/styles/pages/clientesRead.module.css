@@ -2,10 +2,22 @@
     padding: 80px 40px;
 }
 
-.lista {
-    padding: 20px;
+.semCliente {
+    height: 450px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
 
+    text-align: center;
+    font-family: var(--texto);
+}
+
+.lista {
     display: flex;
     flex-direction: column;
     gap: 60px;
+    padding: 20px;
 }

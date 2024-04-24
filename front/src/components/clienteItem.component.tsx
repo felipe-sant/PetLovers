@@ -1,15 +1,21 @@
+import deletarDados from "../functions/deletarDados";
 import Cliente from "../model/cliente";
 import styles from "../styles/table.module.css"
 
 export default function ClienteItem(props: { cliente: Cliente }) {
     const cliente = props.cliente
 
+    const deletar = () => {
+        deletarDados('http://localhost:32831/cliente/excluir', cliente.getId())
+        window.location.reload()
+    }
+
     return (
         <div className={styles.item}>
             <div className={styles.parteSuperior}>
                 <div className={styles.nomes}>
-                    <h2>{cliente.nomeSocial}</h2>
-                    <h3>{cliente.nome}</h3>
+                    <h2>{cliente.nome}</h2>
+                    <h3>{cliente.nomeSocial}</h3>
                 </div>
                 <div className={styles.id}>
                     <span>ID: {cliente.getId()}</span>
@@ -44,7 +50,7 @@ export default function ClienteItem(props: { cliente: Cliente }) {
                                 <strong>CódigoPostal: </strong>
                                 {cliente.endereco.codigoPostal}
                             </span>
-                            {cliente.endereco.informacoesAdicionais !== undefined ? <span><strong>Informações Adicionais:</strong> {cliente.endereco.informacoesAdicionais}</span> : <></>}
+                            {cliente.endereco.informacoesAdicionais !== null ? <span><strong>Informações Adicionais:</strong> {cliente.endereco.informacoesAdicionais}</span> : <></>}
                         </div>
                     </details>
                 </div>
@@ -59,7 +65,7 @@ export default function ClienteItem(props: { cliente: Cliente }) {
                         <div className={styles.informacaoNome}>Telefone:</div>
                         <div className={styles.informacaoDetalhes}>
                             {cliente.telefones.map(telefone => {
-                                return <span>{telefone.mostrarTelefone()}</span>
+                                return <span key={telefone.getId()}>{telefone.mostrarTelefone()}</span>
                             })}
                         </div>
                     </div>
@@ -67,7 +73,7 @@ export default function ClienteItem(props: { cliente: Cliente }) {
             </div>
             <div className={styles.parteInferior}>
                 <button className={styles.editar}>Editar</button>
-                <button className={styles.deletar}>Deletar</button>
+                <button className={styles.deletar} onClick={deletar}>Deletar</button>
             </div>
         </div>
     )

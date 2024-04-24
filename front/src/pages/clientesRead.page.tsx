@@ -8,7 +8,6 @@ import transformarDadosEmClientes from "../functions/transformarDadosEmClientes"
 import ClienteItem from "../components/clienteItem.component";
 
 export default function ClientesRead() {
-    const [dados, setDados] = useState<any[]>([{}])
     const [clientes, setClientes] = useState<Cliente[]>([])
     const [loading, setLoading] = useState<boolean>(true)
 
@@ -17,7 +16,6 @@ export default function ClientesRead() {
             const url = 'http://localhost:32831/cliente/clientes'
             const $dados = await buscarDados(url)
             const $clientes = transformarDadosEmClientes($dados)
-            setDados($dados)
             setClientes($clientes)
         } catch (error) {
             console.log(error)
@@ -30,19 +28,32 @@ export default function ClientesRead() {
         buscarCliente()
     }, [])
 
-    const teste = () => {
-        console.log(clientes)
+    var render
+    if (loading) {
+        render = 
+            <div className={styles.semCliente}>
+                <strong>Carregando clientes...</strong>
+            </div>
+    } else if (clientes.length === 0) {
+        render = 
+            <div className={styles.semCliente}>
+                <strong>Nenhum cliente cadastrado.</strong>
+                <div>:(</div>
+            </div>
+    } else {
+        render =
+            <div className={styles.lista}>
+                {clientes.map((cliente, index) => {
+                    return <ClienteItem key={cliente.getId()} cliente={cliente} />
+                })}
+            </div>
     }
 
     return (
         <>
             <Navbar />
             <main className={styles.main}>
-                <div className={styles.lista}>
-                    {clientes.map(cliente => {
-                        return <ClienteItem cliente={cliente} />
-                    })}
-                </div>
+                {render}
             </main>
             <Footer />
         </>
